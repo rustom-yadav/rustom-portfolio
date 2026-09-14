@@ -17,7 +17,7 @@ const channels = [
     ),
   },
   {
-    href: 'mailto:vijayyadav.official@outlook.com',
+    href: 'mailto:rustomyadav@outlook.com',
     label: 'Email',
     desc: 'Send me a message anytime.',
     icon: (

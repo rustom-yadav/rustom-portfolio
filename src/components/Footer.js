@@ -14,7 +14,7 @@ const socialLinks = [
     ),
   },
   {
-    href: 'mailto:vijayyadav.official@outlook.com',
+    href: 'mailto:rustomyadav@outlook.com',
     label: 'Email',
     icon: (
       <svg
