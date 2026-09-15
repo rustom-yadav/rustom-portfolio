@@ -9,7 +9,7 @@ export default function Projects() {
           Projects
         </h2>
         <p className="mb-8 text-sm text-slate-500 dark:text-[#a1a1aa]">
-          Web apps and side projects built with the MERN stack
+          Production-grade applications built with modern JavaScript, Python, and AI
         </p>
         <div className="grid gap-6 sm:grid-cols-2">
           {projects.map((project) => (

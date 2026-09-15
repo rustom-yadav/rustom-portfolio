@@ -31,7 +31,7 @@ export default function Hero() {
                   className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[#6366f1] to-[#22d3ee] text-4xl font-bold text-white sm:text-5xl"
                   aria-hidden
                 >
-                  VY
+                  RY
                 </span>
               )}
             </div>
@@ -46,20 +46,15 @@ export default function Hero() {
             Hi, I&apos;m Rustom Yadav
           </h1>
           <p className="mb-6 text-lg font-bold text-slate-700 dark:text-[#e4e4e7] sm:text-xl">
-            Software Engineer{' '}
-            <span className="text-slate-400 dark:text-[#a1a1aa]">|</span> Intern
-            @ Site Guru Pvt Ltd
+            Software Engineer <span className="text-slate-400 dark:text-[#a1a1aa]">|</span> Full Stack Developer Intern at Site Guru <span className="text-slate-400 dark:text-[#a1a1aa]">|</span>  AI &amp; DevOps
           </p>
           <div className="mb-8 max-w-xl text-base leading-relaxed text-slate-600 dark:text-[#a1a1aa]">
             <p>
-              From responsive frontends to powerful backends and AI
-              integrations, I build reliable applications focused on
-              performance, usability, and scalability.
+              Full Stack Software Engineer with 1+ year of hands-on experience building and deploying end-to-end web applications using JavaScript, TypeScript, and Python. Delivered 3+ production-grade projects with technologies including Next.js, Node.js, FastAPI, Docker, and CI/CD pipelines. Proven ability to integrate AI/LLM solutions into real-world products. Open Source contributor to freeCodeCamp.
             </p>
           </div>
           <p className="mb-8 text-sm font-medium text-slate-500 dark:text-[#a1a1aa]">
-            Explore my projects and see how I build robust systems from the
-            ground up.
+            Explore my projects and see how I build robust systems from the ground up.
           </p>
           <div className="flex flex-wrap justify-center gap-4 md:justify-start">
             <Link
