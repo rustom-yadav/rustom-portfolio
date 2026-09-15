@@ -58,34 +58,38 @@ export default function Footer() {
 
   return (
     <footer
-      className="relative overflow-hidden border-t border-slate-200 bg-slate-50 py-10 text-center dark:border-transparent dark:bg-gradient-to-b dark:from-[#0c1222] dark:to-[#0a1628]"
+      className="relative overflow-hidden border-t border-slate-200 bg-slate-50 py-12 text-center dark:border-transparent dark:bg-gradient-to-b dark:from-[#0a0a12] dark:to-[#0a1020]"
       role="contentinfo"
     >
+      {/* Animated gradient top line */}
       <div
-        className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-[#6366f1]/30 to-transparent dark:via-[#3b82f6]"
+        className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-[#6366f1]/40 to-transparent animate-gradient-shift"
+        style={{ backgroundSize: '200% 100%' }}
         aria-hidden
       />
       <div
-        className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 size-72 rounded-full bg-[#6366f1]/5 blur-3xl dark:bg-[#1d4ed8]/10"
+        className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 size-72 rounded-full bg-[#6366f1]/5 blur-3xl dark:bg-[#1d4ed8]/8"
         aria-hidden
       />
       <div className="mx-auto max-w-[1200px] px-6">
-        <div className="mb-5 flex flex-wrap justify-center gap-3">
+        <div className="mb-6 flex flex-wrap justify-center gap-3">
           {socialLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg border border-slate-200 px-4 py-2.5 text-sm font-medium text-slate-600 transition-all duration-300 hover:-translate-y-0.5 hover:border-[#6366f1]/50 hover:bg-[#6366f1]/10 hover:text-[#6366f1] dark:border-[#1e3a5a] dark:text-[#93c5fd] dark:hover:text-white dark:hover:shadow-[0_4px_20px_rgba(59,130,246,0.2)]"
+              className="group inline-flex items-center gap-2 rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-medium text-slate-600 transition-all duration-300 hover:-translate-y-1 hover:border-[#6366f1]/50 hover:bg-[#6366f1]/10 hover:text-[#6366f1] hover:shadow-lg dark:border-[#1e293b] dark:text-[#93c5fd] dark:hover:text-white dark:hover:shadow-[0_4px_20px_rgba(99,102,241,0.15)]"
             >
-              {link.icon}
+              <span className="transition-transform duration-300 group-hover:scale-110">
+                {link.icon}
+              </span>
               {link.label}
             </a>
           ))}
         </div>
-        <p className="text-sm text-slate-400 dark:text-[#60a5fa]/50">
-          © {currentYear} Rustom Yadav. All rights reserved.
+        <p className="text-sm text-slate-400 dark:text-[#52525b]">
+          © {currentYear} Rustom Yadav. Built with Next.js & ❤️
         </p>
       </div>
     </footer>

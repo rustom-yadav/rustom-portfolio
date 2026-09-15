@@ -19,6 +19,14 @@ function GithubIcon({ size = 14 }) {
   );
 }
 
+function CheckIcon() {
+  return (
+    <svg className="mt-0.5 h-4 w-4 shrink-0 text-emerald-500 dark:text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+    </svg>
+  );
+}
+
 export default function ProjectCard({
   title,
   description,
@@ -27,11 +35,24 @@ export default function ProjectCard({
   demo,
   image,
   imageAlt,
+  highlights,
+  featured,
 }) {
   return (
-    <article className="flex flex-col rounded-2xl border border-slate-200 bg-white overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-[#27272a] dark:bg-[#1a1a24] dark:hover:bg-[#22222e] dark:hover:shadow-[0_12px_40px_rgba(99,102,241,0.2)]">
+    <article className="group relative flex flex-col rounded-2xl border border-slate-200 bg-white overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl dark:border-[#27272a] dark:bg-[#1a1a24] dark:hover:border-[#6366f1]/20 dark:hover:shadow-[0_16px_50px_rgba(99,102,241,0.12)]">
+      {/* Gradient top accent on hover */}
+      <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#6366f1] via-[#22d3ee] to-[#a855f7] opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-10" />
+
+      {/* Featured badge */}
+      {featured && (
+        <div className="absolute top-3 right-3 z-20 rounded-full bg-gradient-to-r from-[#6366f1] to-[#22d3ee] px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white shadow-lg">
+          Featured
+        </div>
+      )}
+
+      {/* Image with hover zoom */}
       {image && (
-        <div className="relative h-40 w-full shrink-0 bg-slate-100 dark:bg-[#27272a]">
+        <div className="img-zoom relative h-44 w-full shrink-0 bg-slate-100 dark:bg-[#27272a]">
           <Image
             src={image}
             alt={imageAlt}
@@ -41,30 +62,46 @@ export default function ProjectCard({
           />
         </div>
       )}
-      <div className="flex flex-1 flex-col p-5">
-        <h3 className="text-lg font-bold text-slate-900 dark:text-[#e4e4e7]">
+      <div className="flex flex-1 flex-col p-6">
+        <h3 className="text-lg font-bold text-slate-900 dark:text-[#e4e4e7] group-hover:text-[#6366f1] dark:group-hover:text-[#22d3ee] transition-colors">
           {title}
         </h3>
-        <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600 dark:text-[#a1a1aa]">
+        <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-[#a1a1aa]">
           {description}
         </p>
+
+        {/* Highlights */}
+        {highlights && highlights.length > 0 && (
+          <ul className="mt-4 space-y-2">
+            {highlights.map((h, i) => (
+              <li key={i} className="flex items-start gap-2 text-xs leading-relaxed text-slate-500 dark:text-[#71717a]">
+                <CheckIcon />
+                <span>{h}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+
+        {/* Tech tags */}
         <div className="mt-4 flex flex-wrap gap-2">
           {tech.map((t) => (
             <span
               key={t}
-              className="rounded-md bg-[#6366f1]/10 px-2.5 py-1 text-xs font-medium text-[#6366f1] dark:bg-[rgba(34,211,238,0.15)] dark:text-[#22d3ee]"
+              className="rounded-md bg-[#6366f1]/8 px-2.5 py-1 text-xs font-medium text-[#6366f1] dark:bg-[rgba(34,211,238,0.1)] dark:text-[#22d3ee]"
             >
               {t}
             </span>
           ))}
         </div>
-        <div className="mt-4 flex gap-3 border-t border-slate-100 pt-4 dark:border-[#27272a]">
+
+        {/* Links */}
+        <div className="mt-5 flex gap-3 border-t border-slate-100 pt-4 dark:border-[#27272a]">
           {github && (
             <a
               href={github}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-[#6366f1] transition hover:text-[#22d3ee]"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-3.5 py-2 text-sm font-medium text-slate-600 transition-all duration-200 hover:border-[#6366f1]/50 hover:bg-[#6366f1]/10 hover:text-[#6366f1] dark:border-[#27272a] dark:text-[#a1a1aa] dark:hover:border-[#22d3ee]/30 dark:hover:text-[#22d3ee]"
             >
               <GithubIcon />
               Code
@@ -75,7 +112,7 @@ export default function ProjectCard({
               href={demo}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-[#6366f1] transition hover:text-[#22d3ee]"
+              className="inline-flex items-center gap-1.5 rounded-lg bg-gradient-to-r from-[#6366f1] to-[#22d3ee] px-3.5 py-2 text-sm font-medium text-white transition-all duration-200 hover:shadow-lg hover:shadow-indigo-500/25"
             >
               <ExternalLink size={14} />
               Live Demo

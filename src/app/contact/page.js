@@ -1,10 +1,12 @@
 import Link from 'next/link';
+import AnimateOnScroll from '@/components/AnimateOnScroll';
 
 const channels = [
   {
     href: 'https://www.linkedin.com/in/rustom-yadav/',
     label: 'LinkedIn',
     desc: 'Connect with me professionally.',
+    color: 'group-hover:text-[#0077b5] dark:group-hover:text-[#0077b5]',
     icon: (
       <svg
         className="size-5"
@@ -20,6 +22,7 @@ const channels = [
     href: 'mailto:rustomyadav@outlook.com',
     label: 'Email',
     desc: 'Send me a message anytime.',
+    color: 'group-hover:text-[#6366f1] dark:group-hover:text-[#22d3ee]',
     icon: (
       <svg
         className="size-5"
@@ -41,6 +44,7 @@ const channels = [
     href: 'tel:+917007141429',
     label: 'Phone',
     desc: '+91 7007141429',
+    color: 'group-hover:text-emerald-500 dark:group-hover:text-emerald-400',
     icon: (
       <svg
         className="size-5"
@@ -62,6 +66,7 @@ const channels = [
     href: 'https://github.com/rustom-yadav',
     label: 'GitHub',
     desc: 'Browse my repositories and projects.',
+    color: 'group-hover:text-slate-900 dark:group-hover:text-white',
     icon: (
       <svg
         className="size-5"
@@ -81,46 +86,145 @@ const channels = [
 
 export default function Contact() {
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-[#0f0f14]">
-      <main className="mx-auto max-w-xl px-6 py-20">
-        <h2 className="mb-2 text-3xl font-bold text-slate-900 dark:text-[#e4e4e7]">
-          Contact
-        </h2>
-        <p className="mb-8 text-sm text-slate-500 dark:text-[#a1a1aa]">
-          Have a project in mind? Let&apos;s connect.
-        </p>
-        <div className="space-y-3">
-          {channels.map((ch) => (
-            <a
-              key={ch.href}
-              href={ch.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-4 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg dark:border-[#27272a] dark:bg-[#1a1a24] dark:hover:bg-[#22222e] dark:hover:shadow-[0_12px_40px_rgba(99,102,241,0.2)]"
+    <div className="relative min-h-screen bg-slate-50 dark:bg-[#0a0a12] overflow-hidden">
+      {/* Ambient orbs */}
+      <div className="ambient-orb ambient-orb-1" aria-hidden />
+      <div className="ambient-orb ambient-orb-2" aria-hidden />
+
+      <main className="relative mx-auto max-w-2xl px-6 py-20">
+        <AnimateOnScroll>
+          <h2 className="mb-2 text-3xl font-bold">
+            <span className="gradient-text-animated">
+              Let&apos;s Build Something Together
+            </span>
+          </h2>
+          <p className="mb-10 text-sm text-slate-500 dark:text-[#a1a1aa]">
+            Have a project in mind or just want to say hello? I&apos;d love to
+            hear from you.
+          </p>
+        </AnimateOnScroll>
+
+        {/* Contact form (visual) - Commented out for future implementation (e.g., EmailJS, Formspree) */}
+        {/* 
+        <AnimateOnScroll delay={100}>
+          <div className="mb-10 rounded-2xl border border-slate-200 bg-white p-6 dark:border-[#27272a] dark:bg-[#1a1a24]">
+            <h3 className="mb-5 text-lg font-semibold text-slate-900 dark:text-[#e4e4e7]">
+              Send a Message
+            </h3>
+            <form
+              action={`mailto:rustomyadav@outlook.com`}
+              method="GET"
+              className="space-y-4"
             >
-              <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-[#6366f1]/10 text-[#6366f1] transition group-hover:bg-[#6366f1] group-hover:text-white dark:bg-[rgba(34,211,238,0.15)] dark:text-[#22d3ee]">
-                {ch.icon}
-              </span>
-              <div className="min-w-0 flex-1">
-                <p className="font-semibold text-slate-900 dark:text-[#e4e4e7]">
-                  {ch.label}
-                </p>
-                <p className="text-sm text-slate-500 dark:text-[#a1a1aa]">
-                  {ch.desc}
-                </p>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label
+                    htmlFor="contact-name"
+                    className="mb-1.5 block text-sm font-medium text-slate-700 dark:text-[#a1a1aa]"
+                  >
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="contact-name"
+                    placeholder="Your name"
+                    className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition-all focus:border-[#6366f1] focus:ring-2 focus:ring-[#6366f1]/20 dark:border-[#27272a] dark:bg-[#0f0f14] dark:text-[#e4e4e7] dark:focus:border-[#22d3ee] dark:focus:ring-[#22d3ee]/20"
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="contact-email"
+                    className="mb-1.5 block text-sm font-medium text-slate-700 dark:text-[#a1a1aa]"
+                  >
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="contact-email"
+                    placeholder="your@email.com"
+                    className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition-all focus:border-[#6366f1] focus:ring-2 focus:ring-[#6366f1]/20 dark:border-[#27272a] dark:bg-[#0f0f14] dark:text-[#e4e4e7] dark:focus:border-[#22d3ee] dark:focus:ring-[#22d3ee]/20"
+                  />
+                </div>
               </div>
-            </a>
-          ))}
-        </div>
-        <p className="mt-8 text-center text-sm text-slate-500 dark:text-[#a1a1aa]">
-          Want to see my work?{' '}
-          <Link
-            href="/projects"
-            className="font-semibold text-[#6366f1] transition hover:text-[#22d3ee]"
-          >
-            View projects
-          </Link>
-        </p>
+              <div>
+                <label
+                  htmlFor="contact-message"
+                  className="mb-1.5 block text-sm font-medium text-slate-700 dark:text-[#a1a1aa]"
+                >
+                  Message
+                </label>
+                <textarea
+                  id="contact-message"
+                  rows={4}
+                  placeholder="Tell me about your project..."
+                  className="w-full resize-none rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition-all focus:border-[#6366f1] focus:ring-2 focus:ring-[#6366f1]/20 dark:border-[#27272a] dark:bg-[#0f0f14] dark:text-[#e4e4e7] dark:focus:border-[#22d3ee] dark:focus:ring-[#22d3ee]/20"
+                />
+              </div>
+              <button
+                type="submit"
+                className="group inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#6366f1] to-[#22d3ee] px-6 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-indigo-500/25 sm:w-auto"
+              >
+                Send Message
+                <svg className="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+                </svg>
+              </button>
+            </form>
+          </div>
+        </AnimateOnScroll>
+        */}
+
+        {/* Contact channels */}
+        <AnimateOnScroll delay={200}>
+          <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-slate-400 dark:text-[#52525b]">
+            Or reach out directly
+          </h3>
+          <div className="space-y-3">
+            {channels.map((ch, i) => (
+              <AnimateOnScroll key={ch.href} delay={250 + i * 80}>
+                <a
+                  href={ch.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-4 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg dark:border-[#27272a] dark:bg-[#1a1a24] dark:hover:bg-[#22222e] dark:hover:shadow-[0_12px_40px_rgba(99,102,241,0.08)]"
+                >
+                  <span className={`flex size-10 shrink-0 items-center justify-center rounded-xl bg-slate-100 text-slate-500 transition-all duration-300 group-hover:scale-110 dark:bg-[#27272a] dark:text-[#a1a1aa] ${ch.color}`}>
+                    {ch.icon}
+                  </span>
+                  <div className="min-w-0 flex-1">
+                    <p className="font-semibold text-slate-900 dark:text-[#e4e4e7]">
+                      {ch.label}
+                    </p>
+                    <p className="text-sm text-slate-500 dark:text-[#a1a1aa]">
+                      {ch.desc}
+                    </p>
+                  </div>
+                  <svg
+                    className="h-4 w-4 shrink-0 text-slate-300 transition-all group-hover:translate-x-1 group-hover:text-[#6366f1] dark:text-[#3f3f46] dark:group-hover:text-[#22d3ee]"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
+                </a>
+              </AnimateOnScroll>
+            ))}
+          </div>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll delay={500}>
+          <p className="mt-10 text-center text-sm text-slate-500 dark:text-[#a1a1aa]">
+            Want to see my work?{' '}
+            <Link
+              href="/projects"
+              className="font-semibold text-[#6366f1] transition hover:text-[#22d3ee]"
+            >
+              View projects →
+            </Link>
+          </p>
+        </AnimateOnScroll>
       </main>
     </div>
   );
