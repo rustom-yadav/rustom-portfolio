@@ -9,7 +9,7 @@ export const certifications = [
     id: 2,
     title: 'Frontend Development Libraries and Frameworks',
     issuer: 'freeCodeCamp',
-    link: 'https://www.freecodecamp.org/certification/rustom_yadav/javascript-v9',
+    link: 'https://www.freecodecamp.org/certification/rustom_yadav/front-end-development-libraries-v9',
   },
   {
     id: 3,
@@ -30,7 +30,7 @@ export const contributions = [
     id: 1,
     repo: 'freeCodeCamp/freeCodeCamp',
     title:
-      'Added a Python workshop with 17 challenge steps for a kitchen inventory tracker project.',
+      'Created a 17-step interactive Python workshop for freeCodeCamp learners, teaching fundamental Python concepts through a hands-on kitchen inventory tracker project.',
     prNumber: 68279,
     link: 'https://github.com/freeCodeCamp/freeCodeCamp/pull/68279',
   },
@@ -53,7 +53,7 @@ export const contributions = [
   {
     id: 4,
     repo: 'ed-donner/llm_engineering',
-    title: 'Build Resume Builder Agent for Week 1 Exercise',
+    title: 'Contributed an AI-powered Resume Builder Agent to an LLM Engineering course repository.',
     prNumber: 3232,
     link: 'https://github.com/ed-donner/llm_engineering/pull/3232',
   },
